@@ -1,6 +1,5 @@
 import streamlit as st
 import pymongo
-import pandas as pd
 
 # client = pymongo.MongoClient(**st.secrets["mongo"], connect=False)
 client = pymongo.MongoClient("mongodb+srv://JordanT:Gg17Btz2tlhf@cluster0.hiike.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
@@ -26,13 +25,11 @@ with cars_display:
 # for item in list(cars.find()):
 #     st.write(f"{item['make']}")
     if st.sidebar.checkbox('Add a new car'):
-        maker_input = st.sidebar.text_input('Maker')
+        maker_input = st.sidebar.text_input('Make')
         model_input = st.sidebar.text_input('Model')
         year_input = st.sidebar.text_input('Year')
         hp_input = st.sidebar.text_input('Engine HP')
         cylinders_input = st.sidebar.text_input('Engine Cylinders')
-        new_car = {'Maker':maker_input, 'Model':model_input, 'Year':year_input, 'Engine HP':hp_input, 'Engine Cylinders':cylinders_input}
-        st.write(cars.find_one(cars['_id':'61b356c8bae615c3c8d2eccc']))
         if st.sidebar.button('Create New Car!'):
-            x = cars.insert_one(new_car)
-            st.write(x.inserted_id)
+            new_car = {'Make':maker_input, 'Model':model_input, 'Year':year_input, 'Engine HP':hp_input, 'Engine Cylinders':cylinders_input}
+            cars.insert_one(new_car)
