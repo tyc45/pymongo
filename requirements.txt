@@ -1,4 +1,2 @@
 pymongo[srv]
-pymongo
 streamlit
-pandas
