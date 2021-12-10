@@ -1,8 +1,8 @@
 import streamlit as st
 import pymongo
 
-# client = pymongo.MongoClient(**st.secrets["mongo"], connect=False)
-client = pymongo.MongoClient("mongodb+srv://JordanT:Gg17Btz2tlhf@cluster0.hiike.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+client = pymongo.MongoClient(**st.secrets["mongo"], connect=False)
+# client = pymongo.MongoClient("mongodb+srv://JordanT:Gg17Btz2tlhf@cluster0.hiike.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 cars_db = client.carsDB
 cars = cars_db.get_collection("carDataset")
 cars_display = st.container()
