@@ -31,5 +31,5 @@ with cars_display:
         hp_input = st.sidebar.text_input('Engine HP')
         cylinders_input = st.sidebar.text_input('Engine Cylinders')
         if st.sidebar.button('Create New Car!'):
-            new_car = {'Make':maker_input, 'Model':model_input, 'Year':year_input, 'Engine HP':hp_input, 'Engine Cylinders':cylinders_input}
+            new_car = {'Make':maker_input, 'Model':model_input, 'Year':year_input, 'Engine HP':hp_input, 'Engine Cylinders':cylinders_input, 'Vehicle Style':''}
             cars.insert_one(new_car)
